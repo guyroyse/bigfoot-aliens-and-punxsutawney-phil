@@ -1,5 +1,5 @@
 require './common'
-require './monthly_sightings'
+require './sightings'
 
 def save_ufo_sightings
   save_csv('cleaned/ufo_monthly_sightings.csv', ufo_sightings)
