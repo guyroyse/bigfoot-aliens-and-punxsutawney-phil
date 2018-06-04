@@ -1,6 +1,6 @@
 task :default => :all
 
-task :all => [:classinator, :shaper, :sightings]
+task :all => [:classinator, :shaper, :sightings, :xfiles]
 
 task :classinator do
     ruby "bigfoot_classinator.rb"
