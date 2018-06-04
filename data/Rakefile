@@ -1,0 +1,25 @@
+task :default => :all
+
+task :all => [:classinator, :shaper, :sightings]
+
+task :sightings => [:all_sightings, :bigfoot_sightings, :ufo_sightings]
+
+task :classinator do
+    ruby "bigfoot_classinator.rb"
+end
+
+task :shaper do
+    ruby "ufo_shaper.rb"
+end
+
+task :all_sightings do
+    ruby "all_monthly_sightings.rb"
+end
+
+task :bigfoot_sightings do
+    ruby "bigfoot_monthly_sightings.rb"
+end
+
+task :ufo_sightings do
+    ruby "ufo_monthly_sightings.rb"
+end
