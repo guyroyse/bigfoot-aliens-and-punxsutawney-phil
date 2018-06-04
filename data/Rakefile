@@ -1,8 +1,6 @@
 task :default => :all
 
 task :all => [:classinator, :shaper, :sightings]
-task :sightings => [:all_sightings, :bigfoot_sightings, :ufo_sightings]
-task :xfiles => [:all_xfiles, :bigfoot_xfiles, :ufo_xfiles]
 
 task :classinator do
     ruby "bigfoot_classinator.rb"
@@ -11,6 +9,8 @@ end
 task :shaper do
     ruby "ufo_shaper.rb"
 end
+
+task :sightings => [:all_sightings, :bigfoot_sightings, :ufo_sightings]
 
 task :all_sightings do
     ruby "sightings_all.rb"
@@ -23,6 +23,8 @@ end
 task :ufo_sightings do
     ruby "sightings_ufo.rb"
 end
+
+task :xfiles => [:all_xfiles, :bigfoot_xfiles, :ufo_xfiles]
 
 task :all_xfiles do
     ruby "xfiles_all.rb"

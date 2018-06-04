@@ -18,3 +18,5 @@ def ufo_shapes
       !text.empty? && !shape.empty?
     end
 end
+
+save_ufo_shapes

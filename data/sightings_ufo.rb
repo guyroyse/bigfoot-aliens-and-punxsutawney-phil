@@ -2,7 +2,7 @@ require './common'
 require './sightings'
 
 def save_ufo_sightings
-  save_csv('cleaned/ufo_monthly_sightings.csv', ufo_sightings)
+  save_csv('cleaned/ufo_sightings.csv', ufo_sightings)
 end
 
 def ufo_sightings

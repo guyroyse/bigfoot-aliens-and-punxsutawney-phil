@@ -1,8 +1,8 @@
 require './common'
-require './monthly_sightings'
+require './sightings'
 
 def save_bigfoot_sightings
-  save_csv 'cleaned/bigfoot_monthly_sightings.csv', bigfoot_sightings
+  save_csv 'cleaned/bigfoot_sightings.csv', bigfoot_sightings
 end
 
 def bigfoot_sightings
