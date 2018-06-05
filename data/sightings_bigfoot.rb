@@ -1,21 +1,19 @@
-require './common'
 require './sightings'
 
-def save_bigfoot_sightings
-  save_csv 'cleaned/bigfoot_sightings.csv', bigfoot_sightings
+def bigfoot_sightings(start_year, start_month, end_year, end_month)
+  dates = bigfoot_sighting_dates(start_year, start_month, end_year, end_month)
+  aggregate_sightings(dates, start_year, start_month, end_year, end_month)
 end
 
-def bigfoot_sightings
-  aggregate_sightings(bigfoot_sighting_dates, 1969, 1, 2017, 8)
-end
+def bigfoot_sighting_dates(start_year, start_month, end_year, end_month)
 
-def bigfoot_sighting_dates
+  start_year_month = "#{start_year}-#{"%02d" % start_month}"
+  end_year_month = "#{end_year}-#{"%02d" % end_month}"
+
   read_csv('raw/bfro_report_locations.csv')
     .map { |row| row['timestamp'].to_s.strip }
     .find_all { |date| !date.empty? }
-    .find_all { |date| date[0...7] >= '1969-01' && date[0...7] <= '2017-08' }
+    .find_all { |date| date[0...7] >= start_year_month && date[0...7] <= end_year_month }
     .sort
     .map { |date| DateTime.parse(date).strftime('%-m/1/%Y') }
 end
-
-save_bigfoot_sightings

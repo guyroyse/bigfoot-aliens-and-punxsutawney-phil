@@ -1,21 +1,12 @@
 require './common'
-require './alltime_ufo'
-require './alltime_bigfoot'
+require './sightings_both'
 
-def save_all_sightings
-  save_csv 'cleaned/both_sightings_alltime.csv', all_sightings
+def save_both_sightings_alltime
+  save_csv 'cleaned/both_sightings_alltime.csv', both_sightings_alltime
 end
 
-def all_sightings
-  ufo_sightings
-    .zip(bigfoot_sightings)
-    .map do |ufo, bigfoot|
-      {
-        :date => ufo[:date],
-        :ufo_sightings => ufo[:sightings],
-        :bigfoot_sightings => bigfoot[:sightings],
-      }
-    end
+def both_sightings_alltime
+  all_sightings(1969, 1, 2017, 8)
 end
 
-save_all_sightings
+save_both_sightings_alltime
