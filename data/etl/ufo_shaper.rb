@@ -1,4 +1,4 @@
-require './common'
+require './etl/common/csv'
 
 def save_ufo_shapes
   save_csv 'cleaned/ufo_shaper.csv', ufo_shapes

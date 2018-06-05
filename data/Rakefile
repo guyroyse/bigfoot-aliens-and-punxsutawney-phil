@@ -3,37 +3,37 @@ task :default => :all
 task :all => [:classinator, :shaper, :alltime_sightings, :pre_xfiles_sightings]
 
 task :classinator do
-    ruby "bigfoot_classinator.rb"
+    ruby "etl/bigfoot_classinator.rb"
 end
 
 task :shaper do
-    ruby "ufo_shaper.rb"
+    ruby "etl/ufo_shaper.rb"
 end
 
-task :alltime_sightings => [:both_sightings, :bigfoot_sightings, :ufo_sightings]
+task :alltime_sightings => [:both_sightings_alltime, :bigfoot_sightings_alltime, :ufo_sightings_alltime]
 
-task :both_sightings do
-    ruby "alltime_both.rb"
+task :both_sightings_alltime do
+    ruby "etl/alltime_both.rb"
 end
 
-task :bigfoot_sightings do
-    ruby "alltime_bigfoot.rb"
+task :bigfoot_sightings_alltime do
+    ruby "etl/alltime_bigfoot.rb"
 end
 
-task :ufo_sightings do
-    ruby "alltime_ufo.rb"
+task :ufo_sightings_alltime do
+    ruby "etl/alltime_ufo.rb"
 end
 
-task :pre_xfiles_sightings => [:both_pre_xfiles, :bigfoot_pre_xfiles, :ufo_pre_xfiles]
+task :pre_xfiles_sightings => [:both_sightings_pre_xfiles, :bigfoot_sightings_pre_xfiles, :ufo_sightings_pre_xfiles]
 
-task :both_pre_xfiles do
-    ruby "pre_xfiles_both.rb"
+task :both_sightings_pre_xfiles do
+    ruby "etl/pre_xfiles_both.rb"
 end
 
-task :bigfoot_pre_xfiles do
-    ruby "pre_xfiles_bigfoot.rb"
+task :bigfoot_sightings_pre_xfiles do
+    ruby "etl/pre_xfiles_bigfoot.rb"
 end
 
-task :ufo_pre_xfiles do
-    ruby "pre_xfiles_ufo.rb"
+task :ufo_sightings_pre_xfiles do
+    ruby "etl/pre_xfiles_ufo.rb"
 end

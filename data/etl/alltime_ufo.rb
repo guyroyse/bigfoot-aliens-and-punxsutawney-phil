@@ -1,5 +1,5 @@
-require './common'
-require './sightings_ufo'
+require './etl/common/csv'
+require './etl/common/sightings'
 
 def save_ufo_sightings
   save_csv('cleaned/ufo_sightings_alltime.csv', ufo_sightings_alltimes)

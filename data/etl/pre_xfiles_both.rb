@@ -1,5 +1,5 @@
-require './common'
-require './sightings_both'
+require './etl/common/csv'
+require './etl/common/sightings'
 
 def save_all_sightings_pre_xfiles
   save_csv 'cleaned/both_sightings_pre_xfiles.csv', all_sightings_pre_xfiles

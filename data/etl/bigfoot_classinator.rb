@@ -1,4 +1,4 @@
-require './common'
+require './etl/common/csv'
 
 def save_bigfoot_classes
   save_csv 'cleaned/bigfoot_classinator.csv', bigfoot_classes
