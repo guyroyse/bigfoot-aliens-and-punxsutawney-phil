@@ -1,12 +1,8 @@
-require './etl/common/csv'
 require './etl/common/sightings'
 
-def save_both_sightings_alltime
-  save_csv 'cleaned/both_sightings_alltime.csv', both_sightings_alltime
-end
+start_date = YearMonth.new(1969, 1)
+end_date = YearMonth.new(2017, 8)
 
-def both_sightings_alltime
-  all_sightings(1969, 1, 2017, 8)
-end
-
-save_both_sightings_alltime
+sightings = AllSightings.new(start_date, end_date)
+sightings.load
+sightings.save 'cleaned/both_sightings_alltime.csv'

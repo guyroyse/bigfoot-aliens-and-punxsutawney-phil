@@ -1,12 +1,8 @@
-require './etl/common/csv'
 require './etl/common/sightings'
 
-def save_ufo_sightings
-  save_csv('cleaned/ufo_sightings_alltime.csv', ufo_sightings_alltimes)
-end
+start_date = YearMonth.new(1969, 1)
+end_date = YearMonth.new(2017, 8)
 
-def ufo_sightings_alltimes
-  ufo_sightings(1969, 1, 2017, 8)
-end
-
-save_ufo_sightings
+sightings = UfoSightings.new(start_date, end_date)
+sightings.load
+sightings.save 'cleaned/ufo_sightings_alltime.csv'
